@@ -26,7 +26,9 @@ SET time_zone = "+00:00";
 --
 -- Estrutura da tabela `produtos`
 --
-DROP TABLE IF EXISTS `produtos`;
+DROP DATABASE IF EXISTS uc11;
+CREATE DATABASE uc11;
+USE uc11;
 CREATE TABLE `produtos` (
   `id` bigint UNSIGNED NOT NULL,
   `nome` text DEFAULT NULL,
