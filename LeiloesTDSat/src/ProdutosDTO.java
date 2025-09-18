@@ -1,4 +1,5 @@
 public class ProdutosDTO {
+
     private Integer id;
     private String nome;
     private Integer valor;
@@ -35,5 +36,5 @@ public class ProdutosDTO {
     public void setStatus(String status) {
         this.status = status;
     }
-    
+
 }

@@ -1,6 +1,6 @@
-import javax.swing.JOptionPane;
 
 public class cadastroVIEW extends javax.swing.JFrame {
+
     public cadastroVIEW() {
         initComponents();
     }
@@ -119,67 +119,31 @@ public class cadastroVIEW extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadastroNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroNomeActionPerformed
-        
-        
+
+
     }//GEN-LAST:event_cadastroNomeActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-    try {    
-    ProdutosDTO produto = new ProdutosDTO();
-    String nome = cadastroNome.getText();
-    String valorTexto = cadastroValor.getText().replace(",", ".");
-    double valorDouble = Double.parseDouble(valorTexto);
-    int valorInteiro = (int) Math.round(valorDouble);
+        ProdutosDTO produto = new ProdutosDTO();
+        String nome = cadastroNome.getText();
+        String valor = cadastroValor.getText();
+        String status = "A Venda";
+        produto.setNome(nome);
+        produto.setValor(Integer.parseInt(valor));
+        produto.setStatus(status);
 
-    String status = "A Venda";
-    produto.setNome(nome);
-    produto.setValor(valorInteiro); // <-- Ajuste aqui
-    produto.setStatus(status);
-    
-    ProdutosDAO produtodao = new ProdutosDAO();
-    produtodao.cadastrarProduto(produto);
-    
-    JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
-    cadastroNome.setText("");
-    cadastroValor.setText("");
-} catch (Exception e) {
-    JOptionPane.showMessageDialog(null, "Erro ao cadastrar produto: " + e.getMessage());
-}
+        ProdutosDAO produtodao = new ProdutosDAO();
+        produtodao.cadastrarProduto(produto);
+
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdutosActionPerformed
-        listagemVIEW listagem = new listagemVIEW(); 
+        listagemVIEW listagem = new listagemVIEW();
         listagem.setVisible(true);
     }//GEN-LAST:event_btnProdutosActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(cadastroVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(cadastroVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(cadastroVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(cadastroVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new cadastroVIEW().setVisible(true);
