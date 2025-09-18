@@ -7,7 +7,7 @@ public class vendasVIEW extends javax.swing.JFrame {
 
     public vendasVIEW() {
         initComponents();
-        listarVendas(); // Carrega automaticamente ao abrir
+        listarVendas();
     }
 
     @SuppressWarnings("unchecked")
